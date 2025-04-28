@@ -1,6 +1,6 @@
 package br.com.ingrid.screensound;
 
-import br.com.ingrid.screensound.Main.Main;
+import br.com.ingrid.screensound.main.Main;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

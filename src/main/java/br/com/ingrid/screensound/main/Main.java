@@ -1,4 +1,4 @@
-package br.com.ingrid.screensound.Main;
+package br.com.ingrid.screensound.main;
 
 import java.util.Scanner;
 

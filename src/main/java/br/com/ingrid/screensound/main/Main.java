@@ -1,9 +1,19 @@
 package br.com.ingrid.screensound.main;
 
+import br.com.ingrid.screensound.model.Artista;
+import br.com.ingrid.screensound.model.TipoArtista;
+import br.com.ingrid.screensound.repository.ArtistaRepository;
+
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Main {
-    private Scanner scanner;
+    private final ArtistaRepository repository;
+    private Scanner scanner = new Scanner(System.in);
+
+    public Main(ArtistaRepository repository){
+        this.repository = repository;
+    }
 
     public void exibeMenu() {
         var opcao = -1;
@@ -60,8 +70,23 @@ public class Main {
     }
 
     private void cadastrarMusicas() {
+        System.out.println("Cadastrar música de que artista? ");
+        var nome = scanner.nextLine();
+        Optional<Artista> artista =
     }
 
     private void cadastrarArtistas() {
+        var cadastrarNovo = "S";
+
+        while (cadastrarNovo.equalsIgnoreCase("s")) {
+            System.out.println("Informe o nome do artista: ");
+            var nome = scanner.nextLine();
+            System.out.println("Informe o tipo desse artista: (solo, dupla ou banda)");
+            var tipo = scanner.nextLine();
+            TipoArtista tipoArtista = TipoArtista.valueOf(tipo.toUpperCase());
+            Artista artista = new Artista(nome, tipoArtista);
+            repository.save(artista);
+            System.out.println("Cadastrar novo artista? (S/N)");
+        }
     }
 }

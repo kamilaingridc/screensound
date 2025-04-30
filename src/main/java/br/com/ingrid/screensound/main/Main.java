@@ -1,6 +1,7 @@
 package br.com.ingrid.screensound.main;
 
 import br.com.ingrid.screensound.model.Artista;
+import br.com.ingrid.screensound.model.Musica;
 import br.com.ingrid.screensound.model.TipoArtista;
 import br.com.ingrid.screensound.repository.ArtistaRepository;
 
@@ -72,7 +73,16 @@ public class Main {
     private void cadastrarMusicas() {
         System.out.println("Cadastrar música de que artista? ");
         var nome = scanner.nextLine();
-        Optional<Artista> artista =
+        Optional<Artista> artista = repository.findByNomeContainingIgnoreCase(nome);
+        if (artista.isPresent()) {
+            System.out.println("Informe o título da música");
+            var nomeMusica = scanner.nextLine();
+            Musica musica = new Musica(nomeMusica);
+            musica.setArtista(artista.get());
+            repository.save(artista.get());
+        } else {
+            System.out.println("Artista não encontrado.");
+        }
     }
 
     private void cadastrarArtistas() {

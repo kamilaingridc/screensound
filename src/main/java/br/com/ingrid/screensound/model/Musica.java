@@ -15,6 +15,11 @@ public class Musica {
     @ManyToOne
     private Artista artista;
 
+    public Musica(){}
+
+    public Musica(String nomeMusica) {
+    }
+
     @Override
     public String toString() {
         return "Musica='" + titulo + '\'' +

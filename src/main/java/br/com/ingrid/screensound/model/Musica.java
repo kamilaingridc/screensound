@@ -14,4 +14,34 @@ public class Musica {
 
     @ManyToOne
     private Artista artista;
+
+    @Override
+    public String toString() {
+        return "Musica='" + titulo + '\'' +
+                ", artista=" + artista;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public Artista getArtista() {
+        return artista;
+    }
+
+    public void setArtista(Artista artista) {
+        this.artista = artista;
+    }
 }

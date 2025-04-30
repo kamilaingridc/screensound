@@ -19,7 +19,7 @@ public class ScreensoundApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception{
-		Main main = new Main();
+		Main main = new Main(repository);
 		main.exibeMenu();
 	}
 }

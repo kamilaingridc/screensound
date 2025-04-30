@@ -5,6 +5,7 @@ import br.com.ingrid.screensound.model.Musica;
 import br.com.ingrid.screensound.model.TipoArtista;
 import br.com.ingrid.screensound.repository.ArtistaRepository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -68,6 +69,8 @@ public class Main {
     }
 
     private void listarMusicas() {
+        List<Artista> artistas = repository.findAll();
+        artistas.forEach(System.out::println);
     }
 
     private void cadastrarMusicas() {
